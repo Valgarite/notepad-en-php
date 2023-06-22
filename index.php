@@ -6,23 +6,31 @@
     <title>Editor de texto</title>
 </head>
 <body>
-    <form name="text_editor" action="./assets/php/guardar.php" method="post" target="_self" id="text">
+    <form name="text_save" method="post" target="_self" id="text">
         <label for="file_name">Nombre del archivo</label><br>
-        <input type="text" name="file_name" id="file_name"><br>
+        <input type="text" name="file_name" id="file_name" value=<?php
+            echo @$_GET['loaded_name'];
+        ?>><br>
         
         <label for="file_content">Contenido</label><br>
-        <textarea name="file_content" id="file_content" cols="150" rows="25" wrap="off" placeholder="Comienza a escribir aquí..." autocorrect="on" ></textarea><br>
+        <textarea name="file_content" id="file_content" cols="150" rows="25" wrap="off" placeholder="Comienza a escribir aquí..." autocorrect="on"><?php
+            echo @$_GET['loaded_content'];
+        ?></textarea><br>
         
-        <button id="guardar" type="submit">Guardar</button>    
+        <button id="guardar" type="submit">Guardar</button>
     </form>
 
-    <form method="post">
-        <input type="text" name="folder_text" placeholder="Nombre de la carpeta nueva"/>
-        <input type="submit" name="button1" class="button" value="Crear carpeta nueva" />
+    <form method="post" target="_self">
+        <input type="text" name="folder_name" placeholder="Nombre de la carpeta nueva"/>
+        <input type="submit" name="button1" class="button" value="Crear carpeta nueva" onclick=""/>
+        <input type="submit" name="button2" class="button" value="Volver a carpeta principal" />
     </form>
     <div>
         <?php
-            include("./assets/php/listar.php");
+            $working_dir = getcwd();
+            include_once('./assets/php/file_explorer.php');
+            echo 'PASSED PATH: ', $path, '<br>';
+            include_once('./assets/php/guardar.php');
         ?>
     </div>
 
