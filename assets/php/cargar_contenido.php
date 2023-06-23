@@ -12,9 +12,11 @@ $complete_file_path = $working_dir . '/textfiles'. @$content_path . '/' . str_re
 
 try{
     $myfile = @fopen($complete_file_path, "r");
-    while(!feof($myfile)) {
-        echo fgets($myfile);
+    if ($myfile) {
+        while(!feof($myfile)) {
+            echo @fgets($myfile);
+        }
+        fclose($myfile);
     }
-    fclose($myfile);
 }catch(\Throwable $th){}
 ?>

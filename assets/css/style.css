@@ -6,7 +6,25 @@
 }
 
 body{
+    background-color:rgb(98, 98, 98);
     height: 100%;
+}
+header{
+    background-color: rgb(54, 67, 166);
+    color:rgb(255, 251, 176);
+    text-align: center;
+    border: 2px outset black;
+    border-radius: 15px;
+    margin-bottom: 0.2em;
+    padding: 0.5em;
+}
+#title_header{
+    margin-left:0.2em;
+    margin-right:0.2em;
+}
+
+#title{
+    font-size: 3em;  
 }
 
 textarea{
@@ -33,7 +51,7 @@ td>:visited{
     color:violet;
 }
 #td_nombre>:hover{
-    color:aquamarine;
+    color:rgb(244, 255, 126);
 }
 td>:link{
     color:rgb(95, 228, 148);
@@ -42,7 +60,6 @@ td>:link{
     max-width: 10em;
 }
 .container{
-    background-color:rgb(92, 91, 99);
     height: 100%;
     padding-left: 0.2em;
     padding-right: 0.2em;
